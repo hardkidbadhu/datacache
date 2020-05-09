@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/Shopify/sarama" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/davecgh/go-spew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/eapache/go-resiliency" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/eapache/go-xerial-snappy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/eapache/queue" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-chi/chi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-chi/cors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-redis/redis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/snappy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-uuid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/jcmturner/gofork" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/klauspost/compress" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/pierrec/lz4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/pmezard/go-difflib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/rcrowley/go-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/stretchr/testify" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/go.mongodb.org/mongo-driver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/crypto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/jcmturner/aescts.v1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/jcmturner/dnsutils.v1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/jcmturner/gokrb5.v7" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/jcmturner/rpc.v1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/yaml.v3" vcs="Git" />
+  </component>
+</project>

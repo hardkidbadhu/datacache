@@ -1,0 +1,8 @@
+/pkg/
+/src/
+src/apiservice/.idea/
+/deployments/data/
+/.DS_Store
+deployments/data/db/
+.DS_Store
+.idea/

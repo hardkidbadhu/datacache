@@ -1,0 +1,26 @@
+{
+  "app_name": "data_cache_v1",
+  "port": "9000",
+  "read_timeout": 30,
+  "write_timeout": 180,
+  "max_idle_time_out": 240,
+  "redis_vars": {
+    "conn_string": "127.0.0.1:6379",
+    "max_retries": 3,
+    "min_retry_backoff": 120,
+    "dial_timeout": 6,
+    "read_timeout": 12,
+    "write_timeout": 15
+  },
+  "database": {
+    "type": "MongoDB",
+    "name": "datacache",
+    "uri": "mongodb://mongodb:27017",
+    "source": "admin",
+    "timeout": 30,
+    "pool_timeout": 12,
+    "pool_conn_maxidle_time": 60000,
+    "pool_limit": 100
+  },
+  "backupServiceURL": "127.0.0.1:9001"
+}
