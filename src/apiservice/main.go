@@ -3,9 +3,11 @@ package main
 import (
 	"apiservice/config"
 	"apiservice/conn"
+	"apiservice/constants"
 	"apiservice/data_seeds"
 	"apiservice/handler"
 	"apiservice/router"
+	"apiservice/service"
 
 	"context"
 	"flag"
@@ -44,6 +46,11 @@ func main() {
 	defer conn.Database.Client().Disconnect(context.Background())
 
 	data_seeds.InitSeeds(conn.Database)
+
+	log.Println("Info: Setting up the counter in redis...")
+	if err := service.NewInfoService(cli, conn.Database.Collection(constants.COLUserInfo)).SetCounterData(); err != nil {
+		log.Fatalf("Error: Setting up counter - %s", err.Error())
+	}
 
 	p := handler.NewProvider(config.Cfg, cli, conn.Database)
 	r := router.NewRouter(p)

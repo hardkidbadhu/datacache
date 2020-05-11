@@ -40,3 +40,23 @@ func ParseJSON(w http.ResponseWriter, params io.ReadCloser, data interface{}) bo
 	RenderJson(w, http.StatusBadRequest, e)
 	return false
 }
+
+func TotalRecordsInPage(pno, limit, count int) int {
+
+	skip := (pno - 1) * limit
+
+	switch {
+	case skip == 0 && limit >= count:
+		return count
+	case skip == 0 && limit < count:
+		return limit
+	case skip > 0 && limit >= (count - skip) && (count - skip) > 0:
+		return count - skip
+	case skip > 0 && limit > (count - skip) && (count - skip) < 0:
+		return 0
+	case skip > 0 && limit < (count - skip):
+		return limit
+	}
+
+	return 0
+}

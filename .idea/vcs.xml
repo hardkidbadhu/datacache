@@ -10,6 +10,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/go-chi/chi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-chi/cors" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-redis/redis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-swagger/go-swagger" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/snappy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jcmturner/gofork" vcs="Git" />

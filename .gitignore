@@ -1,7 +1,11 @@
-/pkg/
-/src/
 /deployments/data/
 /.DS_Store
-deployments/data/db/
 .DS_Store
-src/apiservice/.idea/
+.idea
+/pkg/
+/src/apiservice/.idea/
+/src/workerservice/.idea/
+/src/github.com/
+/src/go.mongodb.org/
+/src/golang.org/
+/src/gopkg.in/

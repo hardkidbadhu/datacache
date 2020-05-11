@@ -27,3 +27,8 @@ func NewProvider(cfg *config.Configuration, rCli *redis.Client,db *mongo.Databas
 func (p *Provider) Ping (rw http.ResponseWriter, r *http.Request) {
 		utils.RenderJson(rw, http.StatusOK, "Pong!.")
 }
+
+//func (p *Provider) ServeSwagger (rw http.ResponseWriter, r *http.Request) {
+//
+//	restapi.SwaggerJSON
+//}

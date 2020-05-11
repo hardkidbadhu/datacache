@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880e61c5-2236-4bba-a6c5-a2e34e5821ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../deployments/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../deployments/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/config/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/conn/dbconn.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/conn/redisconn.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../workerjob/service/backupservice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conn/apiservice_conf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/dal/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/dal/info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/service/backupservice.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/service/backupservice.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +56,25 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config_files" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/conn" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handler" />
+      <recent name="$PROJECT_DIR$/conn" />
+      <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/config_files" />
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/conn" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/config_files" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestParse in config_test.go">
+  <component name="RunManager" selected="Go Test.TestConnectRedis in redisconn_test.go">
     <configuration name="go build apiservice" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="apiservice" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -85,6 +94,17 @@
       <pattern value="^TestConnectRedis$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestInitDb in apiservice/conn" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="apiservice" />
+      <working_directory value="$PROJECT_DIR$/conn" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="apiservice/conn" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestInitDb$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestParse in config_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="apiservice" />
       <working_directory value="$PROJECT_DIR$/config" />
@@ -95,11 +115,24 @@
       <pattern value="^TestParse$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestTotalRecordsInPage in apiservice/utils" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="apiservice" />
+      <working_directory value="$PROJECT_DIR$/utils" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="apiservice/utils" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestTotalRecordsInPage$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestConnectRedis in redisconn_test.go" />
+        <item itemvalue="Go Test.TestTotalRecordsInPage in apiservice/utils" />
+        <item itemvalue="Go Test.TestInitDb in apiservice/conn" />
         <item itemvalue="Go Test.TestParse in config_test.go" />
         <item itemvalue="Go Build.go build apiservice" />
-        <item itemvalue="Go Test.TestConnectRedis in redisconn_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -110,29 +143,41 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="231" key="GridCell.Tab.0.bottom" timestamp="1589114156749">
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589267444723">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
-    <state width="1398" height="231" key="GridCell.Tab.0.center" timestamp="1589114156749">
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1589267444723" />
+    <state x="100" y="123" width="1240" height="677" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1589260546283">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
-    <state width="1398" height="231" key="GridCell.Tab.0.left" timestamp="1589114156748">
+    <state x="100" y="123" width="1240" height="677" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1440.877@0.23.1440.877" timestamp="1589260546283" />
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom" timestamp="1589267446419">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1589114156748" />
-    <state width="1398" height="231" key="GridCell.Tab.0.right" timestamp="1589114156749">
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1589267446419" />
+    <state width="1398" height="231" key="GridCell.Tab.0.center" timestamp="1589267446417">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
+    <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1589267446417" />
+    <state width="1398" height="231" key="GridCell.Tab.0.left" timestamp="1589267446416">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1589267446416" />
+    <state width="1398" height="231" key="GridCell.Tab.0.right" timestamp="1589267446418">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1589267446418" />
+    <state x="506" y="189" key="RollbackChangesDialog" timestamp="1589267462753">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="506" y="189" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1589267462753" />
     <state x="229" y="100" key="SettingsEditor" timestamp="1589113859239">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="229" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1589113859239" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1589007010208">
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1589217774142">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1589007010208" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1589217774142" />
   </component>
 </project>

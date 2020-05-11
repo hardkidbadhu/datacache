@@ -1,23 +1,20 @@
 FROM golang:1.13 AS builder
 
 WORKDIR $GOPATH/src/
-COPY . ./datamodels
-COPY . ./apiservice
-RUN pwd
-RUN ls
+
+COPY ./datamodels ./datamodels
+COPY ./apiservice ./apiservice
 
 WORKDIR $GOPATH/src/apiservice
+
 RUN go get -v
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o apiservice /apiservice/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o apiservice main.go
 
 FROM alpine
+
 MAINTAINER badhmanabanm@hotmail.com
 
-WORKDIR /datache
+COPY --from=builder /go/src/apiservice/apiservice /apiservice
 
-ADD config /datache/config
-
-COPY --from=builder /datache .
-
-CMD ["./apiservice"]
+CMD ["./apiservice", "-conf", "./config.json"]

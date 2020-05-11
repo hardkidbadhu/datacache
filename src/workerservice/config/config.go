@@ -9,28 +9,23 @@ import (
 
 //Configuration - struct holds the config throughout the application
 type Configuration struct {
-	AppName        string `json:"app_name"`
-	RedisURL       string `json:"redis_url"`
-	HTTPAddress    string `json:"http_address"`
-	Port           string `json:"port"`
-	ReadTimeout    int32  `json:"read_timeout"`
-	WriteTimeout   int32  `json:"write_timeout"`
-	MaxIdleTimeOut int32  `json:"max_idle_time_out"`
-	Database      struct {
-		Type                string   `json:"type"`
-		Name                string   `json:"name"`
-		URI                 string `json:"uri"`
-		Timeout             int    `json:"timeout"`
-		PoolLimit           *uint64      `json:"pool_limit"`
+	AppName  string `json:"app_name"`
+	Database struct {
+		Type      string  `json:"type"`
+		Name      string  `json:"name"`
+		URI       string  `json:"uri"`
+		Timeout   int     `json:"timeout"`
+		PoolLimit *uint64 `json:"pool_limit"`
 	} `json:"database"`
-	RedisVars      struct {
+	RedisVars struct {
 		ConnString      string `json:"conn_string"`
-		MaxRetries      int `json:"max_retries"`
-		MinRetryBackoff int `json:"min_retry_backoff"`
-		DialTimeout     int `json:"dial_timeout"`
-		ReadTimeout     int `json:"read_timeout"`
-		WriteTimeout    int `json:"write_timeout"`
+		MaxRetries      int    `json:"max_retries"`
+		MinRetryBackoff int    `json:"min_retry_backoff"`
+		DialTimeout     int    `json:"dial_timeout"`
+		ReadTimeout     int    `json:"read_timeout"`
+		WriteTimeout    int    `json:"write_timeout"`
 	} `json:"redis_vars"`
+	SchedulerDbBackup int      `json:"scheduler_db_backup"`
 	Kafka             struct{
 		BrokerAddr []string `json:"broker_address"`
 		Topic string `json:"topic"`

@@ -1,9 +1,5 @@
 {
   "app_name": "data_cache_v1",
-  "port": "9000",
-  "read_timeout": 30,
-  "write_timeout": 180,
-  "max_idle_time_out": 240,
   "redis_vars": {
     "conn_string": "127.0.0.1:6379",
     "max_retries": 3,
@@ -22,8 +18,9 @@
     "pool_conn_maxidle_time": 60000,
     "pool_limit": 100
   },
+  "scheduler_db_backup": 1,
   "kafka": {
-    "broker_address" : ["localhost:9092"],
+    "broker_address" : ["localhost:9093"],
     "topic": "restore_user"
   }
 }

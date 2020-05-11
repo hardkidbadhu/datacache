@@ -7,17 +7,11 @@ import (
 	"apiservice/utils"
 	"datamodels"
 
-	"context"
-	"encoding/json"
 	"log"
 	"net/http"
 	"strconv"
 
-	"github.com/go-redis/redis"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
-
 
 type Response struct {
 	Data       interface{}           `json:"data"`
@@ -31,42 +25,15 @@ func (p *Provider) InsertNewInfo(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	infoIns.Id = primitive.NewObjectID()
-	//zkey := utils.FormKey(redis_prefix, infoIns.Id.Hex())
-
-	byt, err := json.Marshal(infoIns)
-	if err != nil {
-		utils.RenderJson(rw, http.StatusInternalServerError, Errs.AppErr{
-			Message: "Something went wrong, Please try after sometime!.",
-			Err:     err.Error(),
-		})
-		return
-	}
-
-	var sno float64
-	if ccmd := p.RCli.Get(constants.RecCounter); ccmd != nil {
-		sno, _ = strconv.ParseFloat(ccmd.Val(), 64)
-	}
-
-	//Ensuring that the value is originally 0 if so take the length from the
-	if sno == 0 {
-		if c, _ := p.Db.Collection(constants.UserInfo).CountDocuments(context.Background(), bson.D{}); c != 0 {
-			sno = float64(c)
-			p.RCli.Set(constants.RecCounter, sno, 0)
-		}
-	}
-
-	cmd := p.RCli.ZAdd(constants.RedisPrefixKey, &redis.Z{Score: sno + 1, Member: string(byt)})
-	if cmd == nil {
-		utils.RenderJson(rw, http.StatusInternalServerError, struct {
+	if err := service.NewInfoService(p.RCli, p.Db.Collection(constants.COLUserInfo)).AddDataToCache(infoIns); err != nil {
+		utils.RenderJson(rw, http.StatusOK, struct {
 			Message string `json:"message"`
 		}{
-			"Error in adding members!.",
+			"Something went wrong, Please try after sometime!.",
 		})
 		return
 	}
 
-	p.RCli.Set(constants.RecCounter, sno+1, 0)
 	utils.RenderJson(rw, http.StatusOK, struct {
 		Message string `json:"message"`
 	}{
@@ -81,7 +48,7 @@ func (p *Provider) ReadInfo(rw http.ResponseWriter, r *http.Request) {
 		err   error
 		pno   int
 		limit int
-		data  []*datamodels.UserInfo
+		data  interface{}
 	)
 
 	pIns := &datamodels.Pagination{}
@@ -105,7 +72,7 @@ func (p *Provider) ReadInfo(rw http.ResponseWriter, r *http.Request) {
 	pIns.PageNum = pno
 	pIns.Limit = limit
 
-	iSrv := service.NewInfoService(p.RCli, p.Cfg)
+	iSrv := service.NewInfoService(p.RCli, p.Db.Collection(constants.COLUserInfo))
 
 	if data, err = iSrv.FetchDataFromCache(pIns); err != nil {
 		log.Printf("Error: ReadInfo - %v", err)

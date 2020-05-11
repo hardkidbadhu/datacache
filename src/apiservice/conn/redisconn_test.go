@@ -10,7 +10,7 @@ import (
 )
 
 func TestConnectRedis(t *testing.T) {
-	config.Parse("apiservice_conf.json")
+	config.Parse("/config_files/apiservice_conf.json")
 	cli := ConnectRedis(1)
 	defer cli.Close()
 
