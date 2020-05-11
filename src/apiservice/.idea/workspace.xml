@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="880e61c5-2236-4bba-a6c5-a2e34e5821ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../deployments/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../deployments/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conn/mongoconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/conn/mongoconn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/info.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conn/apiservice_conf.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build apiservice">
+  <component name="RunManager" selected="Go Test.TestParse in config_test.go">
     <configuration name="go build apiservice" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="apiservice" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -99,9 +97,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestParse in config_test.go" />
         <item itemvalue="Go Build.go build apiservice" />
         <item itemvalue="Go Test.TestConnectRedis in redisconn_test.go" />
-        <item itemvalue="Go Test.TestParse in config_test.go" />
       </list>
     </recent_temporary>
   </component>
@@ -112,26 +110,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="231" key="GridCell.Tab.0.bottom" timestamp="1588935285913">
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom" timestamp="1589114156749">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1588935285913" />
-    <state width="1398" height="231" key="GridCell.Tab.0.center" timestamp="1588935285912">
+    <state width="1398" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
+    <state width="1398" height="231" key="GridCell.Tab.0.center" timestamp="1589114156749">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1588935285912" />
-    <state width="1398" height="231" key="GridCell.Tab.0.left" timestamp="1588935285911">
+    <state width="1398" height="231" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
+    <state width="1398" height="231" key="GridCell.Tab.0.left" timestamp="1589114156748">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1588935285911" />
-    <state width="1398" height="231" key="GridCell.Tab.0.right" timestamp="1588935285912">
+    <state width="1398" height="231" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1589114156748" />
+    <state width="1398" height="231" key="GridCell.Tab.0.right" timestamp="1589114156749">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1588935285912" />
-    <state x="229" y="100" key="SettingsEditor" timestamp="1588932429035">
+    <state width="1398" height="231" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1589114156749" />
+    <state x="229" y="100" key="SettingsEditor" timestamp="1589113859239">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="229" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1588932429034" />
+    <state x="229" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1589113859239" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1589007010208">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

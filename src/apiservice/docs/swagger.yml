@@ -1,0 +1,109 @@
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - https
+swagger: '2.0'
+info:
+  description:
+    --Datacache api server documentation--
+  title: Datacache v1 API.
+  version: 1.0.0
+host: 127.0.0.1:9000
+basePath: /api/v1
+paths:
+  /read/info:
+    get:
+      description: Fetches the paginated record
+      tags:
+        - routes
+      operationId: getAllTheUser
+      parameters:
+        - $ref: '#/parameters/pageNo'
+        - $ref: '#/parameters/limit'
+      responses:
+        '200':
+          $ref: '#/responses/adminL2sByProductResponseGlobal'
+
+  /write/info:
+    post:
+      description: Create a new category
+      tags:
+        - routes
+      operationId: createCategoryForAdmin
+      parameters:
+        - $ref: '#/parameters/pageNo'
+        - $ref: '#/parameters/limit'
+        - name: Body
+          in: body
+          schema:
+            $ref: '#/definitions/UserInfoResponse'
+      responses:
+        '200':
+          description: CategoryTreeNode
+          schema:
+            $ref: '#/definitions/UserInfoResponse'
+
+definitions:
+
+  UserInfoResponse:
+    type: object
+    title: userInfoResponse.
+    properties:
+      id:
+        type: string
+      sNo:
+        type: number
+      name:
+        type: string
+      age:
+        type: number
+      email:
+        type: string
+      phoneNumber:
+        type: string
+      createdAt:
+        type: string
+
+  SuccessResponse:
+    type: object
+    title: Success Message.
+    properties:
+      message:
+        type: string
+
+parameters:
+  pageNo:
+    in: query
+    name: pageNo
+    required: true
+    description: describes the current page no
+    type: string
+
+  limit:
+    in: query
+    name: limit
+    required: true
+    description: limts the no of records in response ex 10, 20, 30
+    type: string
+
+responses:
+  insertNewDocResponse:
+    description: Response for getAdminL2sByProduct global
+    schema:
+      allOf:
+        - $ref: '#/definitions/UserInfoResponse'
+        - type: object
+          properties:
+            result:
+              $ref: '#/definitions/UserInfoResponse'
+  adminL2sByProductResponseGlobal:
+    description: Response for getAdminL2sByProduct global
+    schema:
+      allOf:
+        - $ref: '#/definitions/UserInfoResponse'
+        - type: object
+          properties:
+            result:
+              $ref: '#/definitions/UserInfoResponse'

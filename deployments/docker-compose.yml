@@ -44,3 +44,9 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
     restart: always
     container_name: kafka
+
+  swagger:
+    image: quay.io/goswagger/swagger
+    container_name: swagger-go-server 
+    ports:
+        - 8090:8090
