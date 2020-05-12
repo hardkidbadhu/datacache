@@ -3,7 +3,7 @@ consumes:
 produces:
   - application/json
 schemes:
-  - https
+  - http
 swagger: '2.0'
 info:
   description:
@@ -24,29 +24,28 @@ paths:
         - $ref: '#/parameters/limit'
       responses:
         '200':
-          $ref: '#/responses/adminL2sByProductResponseGlobal'
-
+          $ref: '#/responses/data'
   /write/info:
     post:
-      description: Create a new category
+      description: create a new member
       tags:
         - routes
-      operationId: createCategoryForAdmin
       parameters:
-        - $ref: '#/parameters/pageNo'
-        - $ref: '#/parameters/limit'
         - name: Body
           in: body
           schema:
-            $ref: '#/definitions/UserInfoResponse'
+            $ref: '#/definitions/UserInfoPayload'
       responses:
         '200':
-          description: CategoryTreeNode
+          description: Created a new member
           schema:
-            $ref: '#/definitions/UserInfoResponse'
-
+            $ref: '#/definitions/SuccessResponse'
 definitions:
-
+      
+  UserArray:
+    type: array
+    items:
+      $ref: '#/definitions/UserInfoResponse'
   UserInfoResponse:
     type: object
     title: userInfoResponse.
@@ -65,14 +64,35 @@ definitions:
         type: string
       createdAt:
         type: string
-
+  UserInfoPayload:
+    type: object
+    title: userInfoPayload.
+    properties:
+      name:
+        type: string
+      age:
+        type: number
+      email:
+        type: string
+      phoneNumber:
+        type: string
+  pagination:
+    type: object
+    title: pagination.
+    properties:
+      pageNum:
+        type: number
+      limit:
+        type: number
+      count:
+        type: string
+      
   SuccessResponse:
     type: object
     title: Success Message.
     properties:
       message:
         type: string
-
 parameters:
   pageNo:
     in: query
@@ -80,30 +100,26 @@ parameters:
     required: true
     description: describes the current page no
     type: string
-
   limit:
     in: query
     name: limit
     required: true
     description: limts the no of records in response ex 10, 20, 30
     type: string
-
 responses:
   insertNewDocResponse:
-    description: Response for getAdminL2sByProduct global
+    description: Response for inserting new record
     schema:
       allOf:
-        - $ref: '#/definitions/UserInfoResponse'
         - type: object
-          properties:
-            result:
-              $ref: '#/definitions/UserInfoResponse'
-  adminL2sByProductResponseGlobal:
-    description: Response for getAdminL2sByProduct global
+  data:
+    description: Respose for the list of data
     schema:
       allOf:
-        - $ref: '#/definitions/UserInfoResponse'
         - type: object
           properties:
-            result:
-              $ref: '#/definitions/UserInfoResponse'
+            data:
+              $ref: '#/definitions/UserArray'
+            pagination:
+              $ref: '#/definitions/pagination'
+         
