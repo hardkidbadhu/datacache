@@ -1,0 +1,60 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: dbbackup-worker
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: dbbackup-worker
+            image: badhmanabanm/dbbackupworker
+            imagePullPolicy: Always
+            volumeMounts:
+              - name: config-file
+                mountPath: /config.json
+                subPath: config.json
+          volumes:
+            - name: config-file
+              configMap:
+                name: workerjob-config
+          restartPolicy: OnFailure
+---
+apiVersion: v1
+data:
+  config.json: |-
+    {
+        "app_name": "data_cache_v1",
+        "port": "9000",
+        "read_timeout": 30,
+        "write_timeout": 180,
+        "max_idle_time_out": 240,
+        "redis_vars": {
+          "conn_string": "redis:6379",
+          "max_retries": 3,
+          "min_retry_backoff": 120,
+          "dial_timeout": 6,
+          "read_timeout": 12,
+          "write_timeout": 15,
+          "password": "EC9dFAK1ne"
+        },
+        "database": {
+          "type": "MongoDB",
+          "name": "datacache",
+          "uri": "mongodb://mongodb:27017",
+          "source": "admin",
+          "user_name": "root",
+          "password": "gz7MXGjAFg",
+          "timeout": 30,
+          "pool_timeout": 12,
+          "pool_conn_maxidle_time": 60000,
+          "pool_limit": 100
+        }
+      }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: workerjob-config
+    

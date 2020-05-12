@@ -87,7 +87,6 @@ func (i infoSrv) FetchDataFromCache(p *datamodels.Pagination) (interface{}, erro
 	totalRec, _ := strconv.Atoi(counterCmd.Val())
 
 
-
 	pageRec := utils.TotalRecordsInPage(p.PageNum, p.Limit, totalRec)
 	if pageRec <= 0 {
 		return nil, nil
@@ -124,6 +123,7 @@ func (i infoSrv) FetchDataFromCache(p *datamodels.Pagination) (interface{}, erro
 
 func (i infoSrv) SendNotificationToKafka(pno, limit int) {
 
+	log.Println("SendNotificationToKafka", pno, limit)
 	kfCfg := sarama.NewConfig()
 
 	kfCfg.Producer.RequiredAcks = sarama.WaitForAll
@@ -193,5 +193,7 @@ func (i infoSrv) FetchDataFromDB(skip, limit int64) (data []datamodels.UserInfo,
 		log.Printf("Error: FetchDataFromDB - cursor conversion - %s", err.Error())
 		return
 	}
+
+	log.Println("data", data, err)
 	return
 }
