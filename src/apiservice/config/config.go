@@ -16,25 +16,29 @@ type Configuration struct {
 	ReadTimeout    int32  `json:"read_timeout"`
 	WriteTimeout   int32  `json:"write_timeout"`
 	MaxIdleTimeOut int32  `json:"max_idle_time_out"`
-	Database      struct {
-		Type                string   `json:"type"`
-		Name                string   `json:"name"`
-		URI                 string `json:"uri"`
-		Timeout             int    `json:"timeout"`
-		PoolLimit           *uint64      `json:"pool_limit"`
+	Database       struct {
+		Type      string  `json:"type"`
+		Name      string  `json:"name"`
+		URI       string  `json:"uri"`
+		Timeout   int     `json:"timeout"`
+		Source     string  `json:"source"`
+		PoolLimit *uint64 `json:"pool_limit"`
+		UserName  string  `json:"user_name"`
+		Password  string  `json:"password"`
 	} `json:"database"`
-	RedisVars      struct {
+	RedisVars struct {
 		ConnString      string `json:"conn_string"`
-		MaxRetries      int `json:"max_retries"`
-		MinRetryBackoff int `json:"min_retry_backoff"`
-		DialTimeout     int `json:"dial_timeout"`
-		ReadTimeout     int `json:"read_timeout"`
-		WriteTimeout    int `json:"write_timeout"`
+		MaxRetries      int    `json:"max_retries"`
+		MinRetryBackoff int    `json:"min_retry_backoff"`
+		DialTimeout     int    `json:"dial_timeout"`
+		ReadTimeout     int    `json:"read_timeout"`
+		WriteTimeout    int    `json:"write_timeout"`
+		Password  string  `json:"password"`
 	} `json:"redis_vars"`
-	Kafka             struct{
+	Kafka struct {
 		BrokerAddr []string `json:"broker_address"`
-		Topic string `json:"topic"`
-	}`json:"kafka"`
+		Topic      string   `json:"topic"`
+	} `json:"kafka"`
 }
 
 var (

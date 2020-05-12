@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880e61c5-2236-4bba-a6c5-a2e34e5821ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../workerjob/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workerjob/config/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workerjob/conn/dbconn.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workerjob/conn/redisconn.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workerjob/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workerjob/service/backupservice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workerservice/dal/info.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/dal/info.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workerservice/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workerservice/service/backupservice.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/service/backupservice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conn/mongoconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/conn/mongoconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conn/redisconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/conn/redisconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerjob/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerjob/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerjob/conn/dbconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerjob/conn/dbconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerjob/conn/redisconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerjob/conn/redisconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/conn/dbconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/conn/dbconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/conn/redisconn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workerservice/conn/redisconn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workerservice/dal/info.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -16,6 +16,9 @@ type Configuration struct {
 		URI       string  `json:"uri"`
 		Timeout   int     `json:"timeout"`
 		PoolLimit *uint64 `json:"pool_limit"`
+		Source    string  `json:"source"`
+		UserName  string  `json:"user_name"`
+		Password  string  `json:"password"`
 	} `json:"database"`
 	RedisVars struct {
 		ConnString      string `json:"conn_string"`
@@ -24,6 +27,7 @@ type Configuration struct {
 		DialTimeout     int    `json:"dial_timeout"`
 		ReadTimeout     int    `json:"read_timeout"`
 		WriteTimeout    int    `json:"write_timeout"`
+		Password        string `json:"password"`
 	} `json:"redis_vars"`
 }
 

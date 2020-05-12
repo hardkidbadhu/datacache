@@ -29,6 +29,17 @@ func InitDb() {
 func connectDB() *mongo.Database {
 
 	clientOptions := options.Client().ApplyURI(config.Cfg.Database.URI)
+
+	if config.Cfg.Database.UserName != "" && config.Cfg.Database.Source != "" &&
+		config.Cfg.Database.Password != "" {
+		clientOptions.Auth = &options.Credential{
+			AuthMechanism: `SCRAM-SHA-1`,
+			AuthSource:    config.Cfg.Database.Source,
+			Username:      config.Cfg.Database.UserName,
+			Password:      config.Cfg.Database.Password,
+		}
+	}
+
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
