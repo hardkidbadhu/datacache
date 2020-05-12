@@ -61,15 +61,16 @@ data:
           "min_retry_backoff": 120,
           "dial_timeout": 6,
           "read_timeout": 12,
-          "write_timeout": 15
+          "write_timeout": 15,
+          "password": "EC9dFAK1ne"
         },
         "database": {
           "type": "MongoDB",
           "name": "datacache",
           "uri": "mongodb://mongodb:27017",
           "source": "admin",
-          "user_name": "",
-          "password": ""
+          "user_name": "root",
+          "password": "gz7MXGjAFg",
           "timeout": 30,
           "pool_timeout": 12,
           "pool_conn_maxidle_time": 60000,
